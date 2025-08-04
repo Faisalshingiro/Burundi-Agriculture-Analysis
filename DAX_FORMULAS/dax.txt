@@ -1,0 +1,49 @@
+AreaHarvestedValue = 
+CALCULATE(
+    SUM('FAOSTAT_data_en_7-31-2025'[Value]),
+    'FAOSTAT_data_en_7-31-2025'[Element] = "Area harvested"
+)
+-------------------------------------------------------------------------------
+
+Average_Yield = 
+CALCULATE(
+    AVERAGE('FAOSTAT_data_en_7-31-2025'[Value]),
+    'FAOSTAT_data_en_7-31-2025'[Element] = "Yield"
+)
+--------------------------------------------------------------------------------
+
+Growth_Rate = 
+VAR thisYear = 
+    CALCULATE(
+        SUM('FAOSTAT_data_en_7-31-2025'[Value]),
+        'FAOSTAT_data_en_7-31-2025'[Element] = "Production",
+        'FAOSTAT_data_en_7-31-2025'[Year] = MAX('FAOSTAT_data_en_7-31-2025'[Year])
+    )
+VAR lastYear = 
+    CALCULATE(
+        SUM('FAOSTAT_data_en_7-31-2025'[Value]),
+        'FAOSTAT_data_en_7-31-2025'[Element] = "Production",
+        'FAOSTAT_data_en_7-31-2025'[Year] = MAX('FAOSTAT_data_en_7-31-2025'[Year]) - 1
+    )
+RETURN
+    DIVIDE(thisYear - lastYear, lastYear, 0)
+
+--------------------------------------------------------------------------------------
+
+Number_Crops = 
+CALCULATE(
+    DISTINCTCOUNT('FAOSTAT_data_en_7-31-2025'[Item]),
+    'FAOSTAT_data_en_7-31-2025'[Element] = "Production"
+)
+--------------------------------------------------------------------------------------
+PageTitle = "Details for: " & SELECTEDVALUE('FAOSTAT_data_en_7-31-2025'[Item])
+--------------------------------------------------------------------------------------
+
+Total Production in tones = SUM('FAOSTAT_data_en_7-31-2025'[Value])
+-----------------------------------------------------------------------------------------
+YieldValue = 
+CALCULATE(
+    SUM('FAOSTAT_data_en_7-31-2025'[Value]),
+    'FAOSTAT_data_en_7-31-2025'[Element] = "Yield"
+)
+----------------------------------END----------------------------------------------------

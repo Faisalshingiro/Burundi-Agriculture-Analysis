@@ -1,6 +1,10 @@
 #🌿Burundi Agricultural Productivity Analysis
 
-This capstone project explores agricultural trends in Burundi using FAO data from 2000–2023. It combines Python for data analysis and Power BI for dashboard insights.
+This capstone project of Burundi’s economy heavily depends on agriculture, which employs over 80% of the population and contributes significantly to GDP(Gross Domestic Product). 
+However, the sector faces challenges in productivity, planning, and data accessibility.  
+This project aims to visualize and interpret agricultural trends using data from FAOSTAT (2000- 2023).
+
+---
 
 ## 📌 Project Goals
 - Analyze crop production, yield, and harvested area
@@ -25,7 +29,13 @@ This capstone project explores agricultural trends in Burundi using FAO data fro
 - Yield and area comparison charts
 - Growth rate KPIs
 - Decomposition tree and scatter plots
+  
+## 🧭 Future Work
 
+- Integrate **regional/provincial data** for deeper analysis
+- Include **seasonal patterns** to account for crop cycles
+- Extend scope to **livestock productivity** and fertilizer use
+  
 ## 📝 How to Run
 1. Clone the repo
 2. Open and explore the Jupyter Notebook in `/notebooks/`
